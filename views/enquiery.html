@@ -1,0 +1,68 @@
+<ons-page>
+    <ons-toolbar ng-style="{'background-color':topbarBG}">
+        <div class="left">
+            <ons-back-button>Back</ons-back-button>
+        </div>
+        <div class="center">Enquiry Now</div>
+        <div class="right"></div>
+    </ons-toolbar>
+    <div class="topBanner">
+        <div><img src="{{Banner3}}" style="max-width: 800px; width: 100%;" /></div>
+    </div>
+    <ons-row align="center">
+        <ons-col width="90%"><div class="formListInputLrg"><input type="search" class="search-input" ng-model="data.quickSearch" placeholder="Quick search for a shop / deal"></div></ons-col>
+        <ons-col width="10%"><ons-button ng-click="quickSearch()"><ons-icon icon="fa-search"></ons-button></ons-col>
+    </ons-row>
+    <h2 class="myHeader"><span>CONTACT US</span></h2>
+    <ons-list>
+        <ons-list-item tappable>
+            <label class="left">
+                <ons-checkbox input-id="check-mi" ng-model="data.contactDeals" value="yes"></ons-checkbox>
+            </label>
+            <label for="check-mi" class="center">
+                <span class="list-item__title">I want to know more about these deals</span>
+                <span class="list-item__subtitle red"><i>PS. We’ll call you back!</i></span>
+                
+            </label>
+        </ons-list-item>
+    </ons-list>
+    <div class="formList"><strong>WHO ARE YOU?</strong></div>
+    <div class="formShadow">
+        <div class="formList">
+            <div class="formListLable">FIRST NAME:</div><div class="formListInput"><input ng-model="data.contactName" type="text" class="text-input" placeholder="Name" /></div>
+        </div>
+        <div class="formList">
+            <div class="formListLable">LAST NAME:</div><div class="formListInput"><input ng-model="data.contactSurname" type="text" class="text-input" placeholder="Surname" /></div>
+        </div>
+        <div class="formList">
+            <div class="formListLable">CELL:</div><div class="formListInput"><input ng-model="data.contactCell" type="text" class="text-input" placeholder="Cell number" /></div>
+        </div>
+        <div class="formList">
+            <div class="formListLable">EMAIL:</div><div class="formListInput"><input ng-model="data.contactEmail" type="text" class="text-input" placeholder="Email address" /></div>
+        </div>
+        <ons-list>
+            <ons-list-item tappable>
+                <label class="left">
+                    <ons-checkbox input-id="check-h" ng-model="data.contactHealth" value="yes"></ons-checkbox>
+                </label>
+                <label for="check-h" class="center">
+                    <span class="list-item__title">I want a new / replacement welcome pack @ R20 once-off</span>
+                    <span class="list-item__subtitle">(a friendly consultant will contact you to arrange payment)</span>
+                </label>
+            </ons-list-item>
+        </ons-list>
+        <div class="formList">
+            <div class="formListLable">COMMENTS:</div><div class="formListInput"><textarea ng-model="data.contactComments" class="text-input" placeholder="Your Comments"></textarea></div>
+        </div>
+    </div>
+    <div style="padding:20px">
+        <ons-button modifier="large" id="btnLogIn" ng-click="contactMe()" style="width:100%">SUBMIT</ons-button>
+    </div>
+    <ons-bottom-toolbar ng-style="{'background-color':footerBG}">
+        <ons-row vertical-align="center" style="height: 44px">
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 25px;" onclick="myNavigator.pushPage('views/home.html', { animation : 'slide' } )"><ons-icon icon="ion-home"></ons-icon></ons-col>
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 25px;" onclick="myNavigator.pushPage('views/socialmedia.html', { animation : 'slide' } )"><ons-icon icon="ion-heart"></ons-icon></ons-col>
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 15px;" ng-click="loadpage(5)">T&C’s</ons-col>
+        </ons-row>
+    </ons-bottom-toolbar>
+</ons-page>

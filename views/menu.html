@@ -1,0 +1,39 @@
+<ons-page modifier="menu-page">
+    <ons-list class="bottom-menu-list">
+        <div ng-hide="loggedIn">
+            <ons-list-item modifier="chevron" class="bottom-menu-item" onclick="myNavigator.pushPage('views/login.html'); menu.closeMenu();">
+                Login
+            </ons-list-item>
+        </div>
+        <div ng-show="loggedIn">
+            <ons-list-item modifier="chevron" class="bottom-menu-item" onclick="myNavigator.pushPage('views/user/profile.html', { animation : 'slide' } ); menu.closeMenu();">
+                Profile
+            </ons-list-item>
+        </div>
+        <ons-list-item modifier="chevron" class="bottom-menu-item" onclick="myNavigator.pushPage('views/shop.html'); menu.closeMenu();">
+            Shop
+        </ons-list-item>
+        <div ng-show="loggedIn">
+            <ons-list-item modifier="chevron" class="bottom-menu-item" onclick="myNavigator.pushPage('views/user/redemptions.html'); menu.closeMenu();">
+                e-Wallet
+            </ons-list-item>
+        </div>
+        <ons-list-item modifier="chevron" class="bottom-menu-item" ng-click="loadpage(3); menu.closeMenu();">
+            About Us
+        </ons-list-item>
+        <ons-list-item modifier="chevron" class="bottom-menu-item" onclick="myNavigator.pushPage('views/promotions.html'); menu.closeMenu();">
+            Promotions
+        </ons-list-item>
+        <ons-list-item modifier="chevron" class="bottom-menu-item" onclick="myNavigator.pushPage('views/socialmedia.html'); menu.closeMenu();">
+            Social Media
+        </ons-list-item>
+        <ons-list-item modifier="chevron" class="bottom-menu-item" onclick="myNavigator.pushPage('views/support.html'); menu.closeMenu();">
+            Support
+        </ons-list-item>
+        <div ng-show="loggedIn">
+            <ons-list-item modifier="chevron" class="bottom-menu-item" ng-click="logout(); menu.closeMenu();">
+                Logout
+            </ons-list-item>
+        </div>
+    </ons-list>
+</ons-page>

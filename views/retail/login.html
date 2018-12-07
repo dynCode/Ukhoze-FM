@@ -1,0 +1,32 @@
+<ons-page>
+    <ons-toolbar ng-style="{'background-color':topbarBG}">
+        <div class="left">
+            <ons-back-button>Back</ons-back-button>
+        </div>
+        <div class="center">Retail Login</div>
+        <div class="right"></div>
+    </ons-toolbar>
+    <div class="topBanner">
+        <div class="subImgBlock">
+            <img src="{{subBanner}}" style="max-width: 380px; width: 100%;" />
+        </div>
+    </div>
+    <div class="formShadow">
+        <div class="formList">
+            <div class="formListLable">RETAIL ID:</div><div class="formListInput"><input ng-model="data.retailID" type="text" class="text-input" placeholder="Retail ID" /></div>
+        </div>
+        <div class="formList">
+            <div class="formListLable">PASSWORD:</div><div class="formListInput"><input ng-model="data.retailpassword" type="password" class="text-input" placeholder="Password" /></div>
+        </div>
+    </div>
+    <div style="padding:20px">
+        <ons-button modifier="large" id="btnLogIn" ng-click="RetailLogIn()" style="width:100%">LOG IN</ons-button>
+    </div>
+    <ons-bottom-toolbar ng-style="{'background-color':footerBG}">
+        <ons-row vertical-align="center" style="height: 44px">
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 25px;" onclick="myNavigator.pushPage('views/home.html', { animation : 'slide' } )"><ons-icon icon="ion-home"></ons-icon></ons-col>
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 25px;" onclick="myNavigator.pushPage('views/socialmedia.html', { animation : 'slide' } )"><ons-icon icon="ion-heart"></ons-icon></ons-col>
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 15px;" ng-click="loadpage(5)">T&C’s</ons-col>
+        </ons-row>
+    </ons-bottom-toolbar>
+</ons-page>

@@ -1,0 +1,41 @@
+<ons-alert-dialog var="alertDialog" class="fristLoadPop">
+    <div class="alert-dialog-content">
+        <ons-carousel var="carousel" style="height: 100%; width: 100%" swipeable overscrollable auto-scroll>
+            <ons-carousel-item>
+               <img src="images/fi1.jpg" style="width: 100%;" />
+               <button class="button" ng-click="carousel.next()">Next <ons-icon icon="md-chevron-right"></ons-icon></button>
+            </ons-carousel-item>
+            <ons-carousel-item>
+               <img src="images/fi2.jpg" style="width: 100%;" />
+               <button class="button" ng-click="carousel.next()">Next <ons-icon icon="md-chevron-right"></ons-icon></button>
+            </ons-carousel-item>
+            <ons-carousel-item>
+               <img src="images/fi3.jpg" style="width: 100%;" />
+               <button class="button" ng-click="carousel.next()">Next <ons-icon icon="md-chevron-right"></ons-icon></button>
+            </ons-carousel-item>
+            <ons-carousel-item>
+               <img src="images/fi4.jpg" style="width: 100%;" />
+               <button class="button" ng-click="carousel.next()">Next <ons-icon icon="md-chevron-right"></ons-icon></button>
+            </ons-carousel-item>
+            <ons-carousel-item>
+               <img src="images/fi5.jpg" style="width: 100%;" />
+               
+               <button class="button" ng-click="carousel.next()">Next <ons-icon icon="md-chevron-right"></ons-icon></button>
+            </ons-carousel-item>
+            <ons-carousel-item>
+                <p>Please see our&nbsp;<a onclick="window.open('http://ukhozifmvip.mobi/PrivacyPolicy.htm','_blank','location=yes')">privacy policy here</a></p>
+                <ons-list>
+                    <ons-list-item tappable>
+                        <label class="left">
+                            <ons-checkbox input-id="check-1" ng-model="privacy.accept"></ons-checkbox>
+                        </label>
+                        <label for="check-1" class="center">
+                            I accept the&nbsp;<a onclick="window.open('http://ukhozifmvip.mobi/PrivacyPolicy.htm','_blank','location=yes')"> Privacy Policy</a>
+                        </label>
+                      </ons-list-item>
+                </ons-list>
+                <button class="button" ng-click="alertDialog.hide();" ng-if="privacy.accept">Close</button>
+            </ons-carousel-item>
+        </ons-carousel>
+    </div>
+</ons-alert-dialog>

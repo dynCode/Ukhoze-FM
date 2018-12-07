@@ -1,0 +1,64 @@
+<ons-page>
+    <ons-toolbar ng-style="{'background-color':topbarBG}">
+        <div class="left">
+            <ons-back-button>Back</ons-back-button>
+        </div>
+        <div class="center">Thursday Show Line Up</div>
+        <div class="right"></div>
+    </ons-toolbar>
+    <div class="topBanner">
+        <div><img src="{{Banner1}}" style="max-width: 800px; width: 100%;" /></div>
+    </div>
+    <ons-row align="center">
+        <ons-col width="90%"><div class="formListInputLrg"><input type="search" class="search-input" ng-model="data.quickSearch" placeholder="Quick search for a shop / deal"></div></ons-col>
+        <ons-col width="10%"><ons-button ng-click="quickSearch()"><ons-icon icon="fa-search"></ons-button></ons-col>
+    </ons-row>
+    <h2 class="myHeader contentShadow"><span>THURSDAY SHOW LINE UP</span></h2>
+    <ons-row class="contentShadow">
+        <ons-col width="50%"><h2>Isigqi Sezwe</h2>02:00 AM - 04:00 AM</ons-col>
+        <ons-col width="50%"><img src="images/presenters/shows/WEDNESDAY/01.png" width="100%"></ons-col>
+    </ons-row>
+    <ons-row class="contentShadow">
+        <ons-col width="50%"><h2>Ulibo<br>Lokuqala</h2>04:00 AM - 05:00 AM</ons-col>
+        <ons-col width="50%"><img src="images/presenters/shows/WEDNESDAY/02.png" width="100%"></ons-col>
+    </ons-row>
+    <ons-row class="contentShadow">
+        <ons-col width="50%"><h2>Ezanamuhla</h2>05:00 AM - 06:30 AM</ons-col>
+        <ons-col width="50%"><img src="images/presenters/shows/WEDNESDAY/03.png" width="100%"></ons-col>
+    </ons-row>
+    <ons-row class="contentShadow">
+        <ons-col width="50%"><h2>Vuka<br>Mzansi</h2>06:30 AM - 09:00 AM</ons-col>
+        <ons-col width="50%"><img src="images/presenters/shows/WEDNESDAY/04.png" width="100%"></ons-col>
+    </ons-row>
+    <ons-row class="contentShadow">
+        <ons-col width="50%"><h2>Jabul'ujule</h2>09:00 AM - 12:00 PM</ons-col>
+        <ons-col width="50%"><img src="images/presenters/shows/WEDNESDAY/05.png" width="100%"></ons-col>
+    </ons-row>
+    <ons-row class="contentShadow">
+        <ons-col width="50%"><h2>Ndiza Nathi</h2>12:00 PM - 03:00 PM</ons-col>
+        <ons-col width="50%"><img src="images/presenters/shows/WEDNESDAY/06.png" width="100%"></ons-col>
+    </ons-row>
+    <ons-row class="contentShadow">
+        <ons-col width="50%"><h3>Woza Nabangani<br>Bakho</h3>03:00 PM - 06:00 PM</ons-col>
+        <ons-col width="50%"><img src="images/presenters/shows/WEDNESDAY/07.png" width="100%"></ons-col>
+    </ons-row>
+    <ons-row class="contentShadow">
+        <ons-col width="50%"><h2>Abasiki<br>Bebunda</h2>06:00 PM - 07:00 PM</ons-col>
+        <ons-col width="50%"><img src="images/presenters/shows/WEDNESDAY/08.png" width="100%"></ons-col>
+    </ons-row>
+    <ons-row class="contentShadow">
+        <ons-col width="50%"><h2>Sithakela<br>Isizwe</h2>08:00 PM - 11:00 PM</ons-col>
+        <ons-col width="50%"><img src="images/presenters/shows/WEDNESDAY/09.png" width="100%"></ons-col>
+    </ons-row>
+    <ons-row class="contentShadow">
+        <ons-col width="50%"><h3>Sibhukuda<br>Kwesimanzonzo</h3>11:00 PM - 02:00 AM</ons-col>
+        <ons-col width="50%"><img src="images/presenters/shows/THURSDAY/10.png" width="100%"></ons-col>
+    </ons-row>
+    <ons-bottom-toolbar ng-style="{'background-color':footerBG}">
+        <ons-row vertical-align="center" style="height: 44px">
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 25px;" onclick="myNavigator.pushPage('views/home.html', { animation : 'slide' } )"><ons-icon icon="ion-home"></ons-icon></ons-col>
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 25px;" onclick="myNavigator.pushPage('views/socialmedia.html', { animation : 'slide' } )"><ons-icon icon="ion-heart"></ons-icon></ons-col>
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 15px;" ng-click="loadpage(5)">T&C’s</ons-col>
+        </ons-row>
+    </ons-bottom-toolbar>
+</ons-page>

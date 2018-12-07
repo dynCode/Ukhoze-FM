@@ -1,0 +1,266 @@
+<ons-page ng-init="scrollToTop();">
+    <ons-toolbar ng-style="{'background-color':topbarBG}">
+        <div class="left">
+            <ons-back-button>Back</ons-back-button>
+        </div>
+        <div class="center">Sign Up</div>
+        <div class="right"></div>
+    </ons-toolbar>
+    <div class="topBanner">
+        <div><img src="{{Banner2}}" style="max-width: 800px; width: 100%;" /></div>
+    </div>
+    <ons-row align="center">
+        <ons-col width="90%"><div class="formListInputLrg"><input type="search" class="search-input" id="qsearch" ng-model="data.quickSearch" placeholder="Quick search for a shop / deal" autofocus></div></ons-col>
+        <ons-col width="10%"><ons-button ng-click="quickSearch()"><ons-icon icon="fa-search"></ons-button></ons-col>
+    </ons-row>
+    <h2 class="myHeader"><span>SIGN UP</span></h2>
+    <div class="formList"><strong>HOW ARE YOU SIGNING UP?</strong></div>
+    <p><small><i>How did you hear about the VIP Club?</i></small></p>
+    <div style="padding: 0px 20px 20px 10px;">
+        <ons-row vertical-align="center">
+            <ons-col vertical-align="center">
+                <label class="left">
+                    <ons-radio name="signType" input-id="signType" ng-model="data.signType" value="radio"></ons-radio>
+                </label>
+                <label for="signType" class="center">
+                    Radio Station:
+                </label>
+            </ons-col>
+            <ons-col vertical-align="center">
+                <div class="formListInputLrg"><input type="text" class="text-input" id="signType" ng-model="data.reg_radioCode" value="1060172136" placeholder="1060172136" /></div>
+            </ons-col>
+        </ons-row>
+        <ons-row vertical-align="center">
+            <ons-col vertical-align="center">
+                <label class="left">
+                    <ons-radio name="signType" input-id="signType1" ng-model="data.signType" value="agent"></ons-radio>
+                </label>
+                <label for="signType1" class="center">
+                    Agent:
+                </label>
+            </ons-col>
+            <ons-col vertical-align="center">
+                <div class="formListInputLrg"><input type="text" class="text-input" id="signType1" ng-model="data.reg_agentCode" placeholder="Enter Agent Code" /></div>
+            </ons-col>
+        </ons-row>
+        <ons-row vertical-align="center">
+            <ons-col vertical-align="center">
+                <label class="left">
+                    <ons-radio name="signType" input-id="signType2" ng-model="data.signType" value="promo"></ons-radio>
+                </label>
+                <label for="signType2" class="center">
+                    Event:
+                </label>
+            </ons-col>
+            <ons-col vertical-align="center">
+                <div class="formListInputLrg"><input type="text" class="text-input" id="signType2" ng-model="data.reg_eventCode" placeholder="Will be provided at event" /></div>
+            </ons-col>
+        </ons-row>
+        <ons-row vertical-align="center">
+            <ons-col vertical-align="center">
+                <label class="left">
+                    <ons-radio name="signType" input-id="signType3" ng-model="data.signType" value="friend"></ons-radio>
+                </label>
+                <label for="signType3" class="center">
+                    Friend:
+                </label>
+            </ons-col>
+            <ons-col vertical-align="center">
+                <div class="formListInputLrg"><input type="text" class="text-input" id="signType3" ng-model="data.reg_friendCode" placeholder="Enter Friend's VIP Club number" /></div>
+            </ons-col>
+        </ons-row>
+    </div>
+    <!--<div class="formList"><strong>CHOOSE YOUR CARD</strong></div>
+    <div style="padding: 0px 20px 20px 10px;">
+        <ons-row>
+            <ons-col>
+                <label class="left">
+                    <ons-radio name="cardType" input-id="cardType1" ng-model="data.cardType" value="digital" onclick="showDivAttid('hide','HideMe')"></ons-radio>
+                </label>
+                <label for="cardType1" class="center">
+                    Virtual Card (on your phone)
+                </label>
+            </ons-col>
+        </ons-row>
+        <ons-row>
+            <ons-col>
+                <label class="left">
+                    <ons-radio name="cardType" input-id="cardType2" ng-model="data.cardType" value="physical" onclick="showDivAttid('show','HideMe')"></ons-radio>
+                </label>
+                <label for="cardType2" class="center">
+                    Plastic Card (in-store, when available)
+                </label>
+            </ons-col>
+        </ons-row>
+        <p>Note: Ask your Cashier if you are not sure, not all Shops give plastic cards.  For all free trial memberships or promotions, ONLY a Virtual Card option applies.</p>
+    </div>-->
+    
+    <div class="formList"><strong>PERSONAL DETAILS:</strong></div>
+    <div style="padding: 0px 20px 20px 20px;">
+        <div class="form-row formListInputLrg">
+            <input type="text" class="text-input" ng-model="data.reg_FirstName" placeholder="First Name" value="" onchange="emanAddName(this.value);">
+        </div>
+        <div class="form-row formListInputLrg">
+            <input type="text" class="text-input" ng-model="data.reg_LastName" placeholder="Last Name" value="" onchange="emanAddSurname(this.value);">
+        </div>
+
+        <div class="form-row button-bar" style="width:100%; padding: 10px;">
+            <ons-row>
+                <ons-col>
+                    <label class="left">
+                        <ons-radio name="gender" input-id="genderM" ng-model="data.reg_gender" value="M"></ons-radio>
+                    </label>
+                    <label for="genderM" class="center">
+                        Male
+                    </label>
+                </ons-col>
+            </ons-row>
+            <ons-row>
+                <ons-col>
+                    <label class="left">
+                        <ons-radio name="gender" input-id="genderF" ng-model="data.reg_gender" value="F" ></ons-radio>
+                    </label>
+                    <label for="genderF" class="center">
+                        Female
+                    </label>
+                </ons-col>
+            </ons-row>
+        </div>
+
+        <div class="form-row">
+            <select ng-model="data.reg_title" style="width:100%;">
+                <option value="">Select your Title</option>
+                <option value="MR">Mr</option>
+                <option value="MRS">Mrs</option>
+                <option value="MISS">Miss</option>
+                <option value="MS">Ms</option>
+                <option value="PROF">Professor</option>
+                <option value="DOCT">Doctor</option>
+                <option value="HE">His Excellency</option>
+                <option value="HON">Honorable</option>
+                <option value="OTHE">Other</option>
+            </select>
+        </div>
+        <div class="form-row formListInputLrg">
+            <input type="text" class="text-input" ng-model="data.reg_IDNum" placeholder="ID Number" value="" onchange="emanAddID(this.value);">
+        </div>
+        <div class="form-row formListInputLrg">
+            <input type="text" class="text-input" ng-model="data.reg_CellNumber" placeholder="Cell Number" value="" onchange="emanAddCell(this.value);">
+        </div>
+        <div class="form-row formListInputLrg">
+            <input type="text" class="text-input" ng-model="data.reg_EmailAddress" placeholder="Email Address" value="" onchange="emanAddEmail(this.value);">
+        </div>
+        <div class="form-row formListInputLrg">
+            <input type="text" class="text-input" ng-model="data.reg_Address1" placeholder="Address Line 1" value="">
+        </div>
+        <div class="form-row formListInputLrg">
+            <input type="text" class="text-input" ng-model="data.reg_Address2" placeholder="Address Line 2" value="">
+        </div>
+        <div class="form-row formListInputLrg">
+            <input type="text" class="text-input" ng-model="data.reg_PostCode" placeholder="Postal Code" value="">
+        </div>
+        
+        <div class="form-row formListInputLrg">
+            <select ng-model="data.reg_Province" ng-change="getDistCode()" style="width:100%;">
+                <option value="">Select your Province</option>
+                <option value="EASC">Eastern Cape</option>
+                <option value="FREE">Free State</option>
+                <option value="GAUT">Gauteng</option>
+                <option value="KZNT">KwaZulu-Natal</option>
+                <option value="NPRO">Limpopo</option>
+                <option value="MPUM">Mpumalanga</option>
+                <option value="NWES">North West</option>
+                <option value="NCAP">Northern Cape</option>
+                <option value="WESC">Western Cape</option>
+                <option value="OTHR">Other</option>
+            </select>
+        </div>
+
+        <div class="form-row formListInputLrg">
+            <select ng-model="data.reg_City" ng-options="regCity.distname for regCity in regCityDD track by regCity.distcode" style="width:100%;">
+                <option value="">Select a City</option>
+            </select>
+        </div>
+        <div class="form-row formListInputLrg">
+            <input type="text" class="text-input" ng-model="data.reg_Suburb" placeholder="Suburb" value="">
+        </div>
+    </div>
+    
+    <div class="formList"><strong>BENEFICIARY  DETAILS:</strong></div>
+    <div style="padding: 0px 20px 20px 20px;">
+        <small>(To whom must the funeral benefit pay out in case of death of the main member)</small>
+        <div class="form-row formListInputLrg">
+            <input type="text" class="text-input" ng-model="data.reg_BenFirstName" placeholder="First Name" value="">
+        </div>
+        <div class="form-row formListInputLrg">
+            <input type="text" class="text-input" ng-model="data.reg_BenLastName" placeholder="Last Name" value="">
+        </div>
+        <div class="form-row formListInputLrg">
+            <input type="text" class="text-input" ng-model="data.reg_Bendob" placeholder="Date of Birth" value="">
+        </div>
+        <div class="form-row formListInputLrg">
+            <input type="text" class="text-input" ng-model="data.reg_BenID" placeholder="ID Number" value="">
+        </div>
+        <small>(Either the beneficiary's Date of Birth or ID number is required to continue.)</small>
+    </div>
+    
+    <div class="formList"><strong>Debit Order Authorisation (E-mandate):</strong></div>
+    <div style="padding: 0px 20px 20px 10px;">
+        <iframe src='https://emandate.stratcol.co.za/emandate_debit_order.php?userkey=U1Q3d0NEbEpDYXZlcGExZldZV09PenNWNjZjMnRORlBnUVRub2lQVHYzRT0=' width='450' height='920' style='position:relative; margin:0 auto; width:450px; height:920px; display:block; border:0;' name="framename"></iframe>
+    </div>
+    <!--
+    <div id="HideMe">
+        <div class="formList"><strong>Enter Member No:</strong></div>
+        <div style="padding: 0px 20px 20px 10px;">
+            <div class="form-row formListInputLrg">
+                <input type="text" class="text-input" id="memberCode" ng-model="data.reg_memberCode" placeholder="Member No" />
+            </div>
+        </div>
+    </div>
+    -->
+    <p></p>
+    <ons-list>
+        <ons-list-item>
+            <label class="left">
+                <ons-checkbox input-id="check-0" ng-model="data.debitForm" value="yes"></ons-checkbox>
+            </label>
+            <label for="check-0" class="center">
+                I have completed my Personal & Beneficiary Details and Bank Authorisation (created e-mandate) to apply for the Ukhozi FM VIP Club for only <span style="color: rgb(149,27,30);">R65 per month</span>.
+            </label>
+        </ons-list-item>
+        <ons-list-item>
+            <label class="left">
+                <ons-checkbox input-id="check-1" ng-model="data.tc_y" value="yes"></ons-checkbox>
+            </label>
+            <label for="check-1" class="center">
+                I have read and accept the terms & conditions.
+            </label>
+        </ons-list-item>
+        <ons-list-item>
+            <label class="left">
+                <ons-checkbox input-id="check-3" ng-model="data.privacy_y" value="yes"></ons-checkbox>
+            </label>
+            <label for="check-3" class="center">
+                I accept the&nbsp; <a onclick="myNavigator.pushPage('views/privacy.html', { animation : 'slide' } )"> Privacy Policy</a>
+            </label>
+        </ons-list-item>
+        <ons-list-item>
+            <label class="left">
+                <ons-checkbox input-id="check-2" ng-model="data.market_y" value="yes"></ons-checkbox>
+            </label>
+            <label for="check-2" class="center">
+                I would like to receive special deals, products and promotions related to the programme.
+            </label>
+        </ons-list-item>
+    </ons-list>
+    </div>
+    <p style="padding: 0 20px;"><strong>Please note:</strong> Failing to submit all the required fields on the sign up form,  may lead to an unsuccessful application and a very dissapointed VIP - please contact us should you not receive your welcome communication.</p>
+    <div class="formList"><ons-button modifier="large" class="reg-button" ng-click="registerME()">SUBMIT</ons-button></div>
+    <ons-bottom-toolbar ng-style="{'background-color':footerBG}">
+        <ons-row vertical-align="center" style="height: 44px">
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 25px;" onclick="myNavigator.pushPage('views/home.html', { animation : 'slide' } )"><ons-icon icon="ion-home"></ons-icon></ons-col>
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 25px;" onclick="myNavigator.pushPage('views/socialmedia.html', { animation : 'slide' } )"><ons-icon icon="ion-heart"></ons-icon></ons-col>
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 15px;" ng-click="loadpage(5)">T&C’s</ons-col>
+        </ons-row>
+    </ons-bottom-toolbar>
+</ons-page>

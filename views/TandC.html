@@ -1,0 +1,38 @@
+<ons-page>
+    <ons-toolbar ng-style="{'background-color':topbarBG}">
+        <div class="left">
+            <ons-back-button>Back</ons-back-button>
+        </div>
+        <div class="center">TERMS & CONDITIONS</div>
+        <div class="right">
+        </div>
+    </ons-toolbar>
+    <div class="topBanner">
+        <div class="subImgBlock">
+            <img src="{{subBanner}}" style="max-width: 380px; width: 100%;" />
+        </div>
+    </div>
+    <h2 class="myHeader"><span>TERMS & CONDITIONS</span></h2>
+    <div style="padding: 0 20px;">
+        <div ng-bind-html="tcPage | to_trusted"></div>
+    </div>
+    <ons-list class="dropShadow">
+        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('views/privacy.html', { animation : 'slide' } )">
+            PRIVACY POLICY
+        </ons-list-item>
+    </ons-list>
+    <ons-list class="dropShadow">
+        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('views/mdis.html', { animation : 'slide' } )">
+            PROGRAMME DISCLOSURE
+        </ons-list-item>
+    </ons-list>
+    <ons-bottom-toolbar ng-style="{'background-color':footerBG}">
+        <ons-row vertical-align="center" style="height: 44px">
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 25px;" onclick="myNavigator.popPage({ animation : 'fade' })"><ons-icon icon="ion-home"></ons-icon></ons-col>
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 25px;" onclick="myNavigator.pushPage('views/socialmedia.html', { animation : 'slide' } )"><ons-icon icon="ion-heart"></ons-icon></ons-col>
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 15px;" ng-click="loadpage(5)">T&C’s</ons-col>
+        </ons-row>
+    </ons-bottom-toolbar>
+</ons-page>
+
+
