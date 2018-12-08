@@ -375,6 +375,15 @@ ons-carousel[fullscreen] {
 
 .fristLoadPop .alert-dialog {
     width: 90% !important;
+    height: 90% !important;
+}
+
+.fristLoadPop .alert-dialog img{
+    width: auto !important;
+    max-width: 100% !important;
+    max-height: 75vh !important;
+    display: block;
+    margin: auto;
 }
 
 .back-button__icon {
