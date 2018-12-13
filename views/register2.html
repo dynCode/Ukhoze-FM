@@ -1,0 +1,41 @@
+<ons-page>
+    <ons-toolbar ng-style="{'background-color':topbarBG}">
+        <div class="left">
+            <ons-back-button>Back</ons-back-button>
+        </div>
+        <div class="center">Sign Up</div>
+        <div class="right"></div>
+    </ons-toolbar>
+    <div class="topBanner">
+        <div><img src="{{Banner2}}" style="max-width: 800px; width: 100%;" /></div>
+    </div>
+    <ons-row align="center">
+        <ons-col width="90%"><div class="formListInputLrg"><input type="search" class="search-input" id="qsearch" ng-model="data.quickSearch" placeholder="Quick search for a shop / deal" autofocus></div></ons-col>
+        <ons-col width="10%"><ons-button ng-click="quickSearch()"><ons-icon icon="fa-search"></ons-button></ons-col>
+    </ons-row>
+    <h2 class="myHeader"><span>SIGN UP - Step 2</span></h2>
+    <div class="formList"><strong>Debit Order Authorisation (E-mandate):</strong></div>
+    <div style="padding: 0px 20px 20px 10px;">
+        <iframe src='https://emandate.stratcol.co.za/emandate_debit_order.php?userkey=U1Q3d0NEbEpDYXZlcGExZldZV09PenNWNjZjMnRORlBnUVRub2lQVHYzRT0=' width='450' height='920' style='position:relative; margin:0 auto; width:450px; height:920px; display:block; border:0;' name="framename"></iframe>
+    </div>
+    <p style="padding: 0 20px;"><strong>Please note:</strong> Failing to submit all the required fields on the sign up form,  may lead to an unsuccessful application and a very dissapointed VIP - please contact us should you not receive your welcome communication.</p>
+    
+    <ons-list>
+        <ons-list-item tappable>
+            <label class="left">
+                <ons-checkbox input-id="check-1" ng-model="data.emanaccept"></ons-checkbox>
+            </label>
+            <label for="check-1" class="center">
+                I have completed my bank details and clicked on “Create E-mandate” to create my debit order authorisation.
+            </label>
+          </ons-list-item>
+    </ons-list>
+    <div class="formList"><ons-button modifier="large" class="reg-button" ng-if="data.emanaccept" ng-click="registerLast()">Next</ons-button></div>
+    <ons-bottom-toolbar ng-style="{'background-color':footerBG}">
+        <ons-row vertical-align="center" style="height: 44px">
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 25px;" onclick="myNavigator.pushPage('views/home.html', { animation : 'slide' } )"><ons-icon icon="ion-home"></ons-icon></ons-col>
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 25px;" onclick="myNavigator.pushPage('views/socialmedia.html', { animation : 'slide' } )"><ons-icon icon="ion-heart"></ons-icon></ons-col>
+            <ons-col vertical-align="center" style="text-align: center; line-height: 44px; font-size: 15px;" ng-click="loadpage(5)">T&C’s</ons-col>
+        </ons-row>
+    </ons-bottom-toolbar>
+</ons-page>

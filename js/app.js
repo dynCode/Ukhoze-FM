@@ -508,6 +508,134 @@ module.controller('AppController', function($scope, $http, $window, $timeout, Up
         }
     };
     //register me
+    $scope.registerNext = function () {
+        var radioCode = $scope.data.reg_radioCode;
+        var agentCode = $scope.data.reg_agentCode;
+        var eventCode = $scope.data.reg_eventCode;
+        var friendCode = $scope.data.reg_friendCode;
+        var signType = $scope.data.signType;
+        //var cardType = $scope.data.cardType;
+        var cardType = 'digital';
+        var FirstName = $scope.data.reg_FirstName;
+        var LastName = $scope.data.reg_LastName;
+        var gender = $scope.data.reg_gender;
+        var title = $scope.data.reg_title;
+        var IDNum = $scope.data.reg_IDNum;
+        var CellNumber = $scope.data.reg_CellNumber;
+        var EmailAddress = $scope.data.reg_EmailAddress;
+        var Address1 = $scope.data.reg_Address1;
+        var Address2 = $scope.data.reg_Address2;
+        var PostCode = $scope.data.reg_PostCode;
+        var Suburb = $scope.data.reg_Suburb;
+        var City = $scope.data.reg_City;
+        var Province = $scope.data.reg_Province;
+        var MemberNo = $scope.data.reg_memberCode;
+        var reg_BenFirstName = $scope.data.reg_BenFirstName;
+        var reg_BenLastName = $scope.data.reg_BenLastName;
+        var reg_Bendob = $scope.data.benreg_year+"-"+$scope.data.benreg_month+"-"+$scope.data.benreg_day;
+        var reg_BenID = $scope.data.reg_BenID;
+
+        var contApp = false;
+
+        console.log("Register DATA:", $scope.data);
+
+        if (!FirstName) {
+            ons.notification.alert({
+                message: 'Please enter your name.',
+                title: 'Oops!',
+                buttonLabel: 'OK',
+                animation: 'default'
+            });
+        } else if (!LastName) {
+            ons.notification.alert({
+                message: 'Please enter your last name.',
+                title: 'Oops!',
+                buttonLabel: 'OK',
+                animation: 'default'
+            });
+        } else if (!gender) {
+            ons.notification.alert({
+                message: 'Please select your gender.',
+                title: 'Oops!',
+                buttonLabel: 'OK',
+                animation: 'default'
+            });
+        } else if (!IDNum) {
+            ons.notification.alert({
+                message: 'Please enter your ID Number.',
+                title: 'Oops!',
+                buttonLabel: 'OK',
+                animation: 'default'
+            });
+        } else if (!CellNumber) {
+            ons.notification.alert({
+                message: 'Please enter your Cell Number.',
+                title: 'Oops!',
+                buttonLabel: 'OK',
+                animation: 'default'
+            });
+        } else if (!EmailAddress) {
+            ons.notification.alert({
+                message: 'Please enter your Email Address.',
+                title: 'Oops!',
+                buttonLabel: 'OK',
+                animation: 'default'
+            });
+        } else if ((typeof reg_BenFirstName === 'undefined' || reg_BenFirstName === null) && (typeof reg_BenLastName === 'undefined' || reg_BenLastName === null)) {
+            ons.notification.alert({
+                message: 'Please enter beneficiary Name and Surname to continue.',
+                title: 'Oops!',
+                buttonLabel: 'OK',
+                animation: 'default'
+            });
+        } else {
+            contApp = true;
+        }
+        
+        var rbdob, rbid, conBen;
+        
+        if (typeof $scope.data.benreg_year === 'undefined' || $scope.data.benreg_year === null) {
+            rbdob = false;
+        } else {
+            rbdob = true;
+        }
+        
+        if (typeof reg_BenID === 'undefined' || reg_BenID === null || reg_BenID === '') {
+            rbid = false;
+        } else {
+            rbid = true;
+        }
+        
+        if (rbdob) {
+            conBen = true;
+        } else if (rbid) {
+            conBen = true;
+        } else {
+            ons.notification.alert({
+                message: 'Please enter beneficiary ID or date of birth to continue.',
+                title: 'Oops!',
+                buttonLabel: 'OK',
+                animation: 'default'
+            });
+        }
+        
+        
+        if (contApp && conBen) {
+            myNavigator.pushPage('views/register2.html', { animation : 'fade' });
+        } else {
+            ons.notification.alert({
+                message: 'Something went wrong. Please insure that you have completed all the fields!',
+                title: 'Oops!',
+                buttonLabel: 'OK',
+                animation: 'default'
+            });
+        }
+    };
+    
+    $scope.registerLast = function () {
+        myNavigator.pushPage('views/registerLast.html', { animation : 'fade' });
+    };
+    
     $scope.registerME = function () {
         var radioCode = $scope.data.reg_radioCode;
         var agentCode = $scope.data.reg_agentCode;
@@ -532,9 +660,10 @@ module.controller('AppController', function($scope, $http, $window, $timeout, Up
         var MemberNo = $scope.data.reg_memberCode;
         var tc_y = $scope.data.tc_y;
         var market_y = $scope.data.market_y;
+        var privacy_y = $scope.data.privacy_y;
         var reg_BenFirstName = $scope.data.reg_BenFirstName;
         var reg_BenLastName = $scope.data.reg_BenLastName;
-        var reg_Bendob = $scope.data.reg_Bendob;
+        var reg_Bendob = $scope.data.benreg_year+"-"+$scope.data.benreg_month+"-"+$scope.data.benreg_day;
         var reg_BenID = $scope.data.reg_BenID;
         var debitForm = $scope.data.debitForm;
 
@@ -574,15 +703,21 @@ module.controller('AppController', function($scope, $http, $window, $timeout, Up
             market_y = 'yes';
         }
         
+        if (typeof privacy_y === 'undefined' || privacy_y === null) {
+            privacy_y = 'no';
+        } else {
+            privacy_y = 'yes';
+        }
+        
         if (typeof debitForm === 'undefined' || debitForm === null) {
             debitForm = 'no';
         } else {
             debitForm = 'yes';
         }
 
-        if (cardType === "physical" && (typeof MemberNo === 'undefined' || MemberNo === null)) {
+       if (tc_y === 'no') {
             ons.notification.alert({
-                message: 'Please enter the membership number on your physical card.',
+                message: 'Please accept the terms and conditions to continue.',
                 title: 'Oops!',
                 buttonLabel: 'OK',
                 animation: 'default'
@@ -594,23 +729,9 @@ module.controller('AppController', function($scope, $http, $window, $timeout, Up
                 buttonLabel: 'OK',
                 animation: 'default'
             });
-        } else if (tc_y === 'no') {
+        } else if (privacy_y === 'no') {
             ons.notification.alert({
-                message: 'Please accept the terms and conditions to continue.',
-                title: 'Oops!',
-                buttonLabel: 'OK',
-                animation: 'default'
-            });
-        } else if ((typeof reg_BenFirstName === 'undefined' || reg_BenFirstName === null) && (typeof reg_BenLastName === 'undefined' || reg_BenLastName === null)) {
-            ons.notification.alert({
-                message: 'Please enter beneficiary Name and Surname to continue.',
-                title: 'Oops!',
-                buttonLabel: 'OK',
-                animation: 'default'
-            });
-        } else if ((typeof reg_Bendob === 'undefined' || reg_Bendob === null) || (typeof reg_BenID === 'undefined' || reg_BenID === null)) {
-            ons.notification.alert({
-                message: 'Please enter beneficiary ID or date of birth to continue.',
+                message: 'Please accept the Privacy Policy to continue.',
                 title: 'Oops!',
                 buttonLabel: 'OK',
                 animation: 'default'
@@ -642,7 +763,10 @@ module.controller('AppController', function($scope, $http, $window, $timeout, Up
                         message: data['html'],
                         title: 'Error',
                         buttonLabel: 'OK',
-                        animation: 'default'
+                        animation: 'default',
+                        callback: function() {
+                            myNavigator.resetToPage('views/register.html', { animation : 'fade' });
+                        }
                     });
                 }
             })
@@ -652,11 +776,15 @@ module.controller('AppController', function($scope, $http, $window, $timeout, Up
                     message: 'There was a problem processing your request, please try again!',
                     title: 'Oops!',
                     buttonLabel: 'OK',
-                    animation: 'default'
+                    animation: 'default',
+                    callback: function() {
+                        myNavigator.resetToPage('views/register.html', { animation : 'fade' });
+                    }
                 });
             });   
         }  
     };
+    
     // set show mpacc on registrarion 
     $scope.showMPAccInput = function () {
         console.log($scope.data.cardType);
@@ -4559,32 +4687,9 @@ function showDivAttid(con,divid){
     }
 }
 
-function emanAddName(v) {
-    var names = v.split(" ");
-    var i = 0;
-    var initials = '';
-    
-    while (names.length > i) {
-        var ini = names[i].slice(0,1);
-        initials = initials+ini;
-        i++;
-    }
-    
-    window.frames['framename'].document.getElementById("debit_initials").value = initials.toUpperCase();
-}
-
-function emanAddSurname(v) {
-    window.frames['framename'].document.getElementById("debit_surname").value = v;
-}
-
-function emanAddID(v) {
-    window.frames['framename'].document.getElementById("debit_id_no").value = v;
-}
-
-function emanAddCell(v) {
-    window.frames['framename'].document.getElementById("debit_mobile").value = v;
-}
-
-function emanAddEmail(v) {
-    window.frames['framename'].document.getElementById("debit_email").value = v;
+function moveOnMax(field,nextFieldID,ml) { 
+    var fl = document.getElementById(field).value.length;
+    if(fl >= ml) { 
+        document.getElementById(nextFieldID).focus(); 
+    } 
 }
