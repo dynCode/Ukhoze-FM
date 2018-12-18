@@ -267,11 +267,11 @@ module.controller('AppController', function($scope, $http, $window, $timeout, Up
         var tandc = $window.localStorage.getItem('tandc');
         var ftime = $window.localStorage.getItem('ftime');
 
-        if (ftime !== 'yes') {
+        /*if (ftime !== 'yes') {
             ons.createAlertDialog('views/firstLogin.html').then(function(alertDialog) {
                 alertDialog.show();
             });
-        }
+        }*/
 
         $window.localStorage.setItem('ftime','yes');
 
@@ -570,13 +570,6 @@ module.controller('AppController', function($scope, $http, $window, $timeout, Up
         } else if (!CellNumber) {
             ons.notification.alert({
                 message: 'Please enter your Cell Number.',
-                title: 'Oops!',
-                buttonLabel: 'OK',
-                animation: 'default'
-            });
-        } else if (!EmailAddress) {
-            ons.notification.alert({
-                message: 'Please enter your Email Address.',
                 title: 'Oops!',
                 buttonLabel: 'OK',
                 animation: 'default'
